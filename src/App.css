@@ -15,7 +15,7 @@
 
 @font-face {
   font-family: 'JetBrains Mono';
-  src: local('JetBrains Mono'),url(../assets/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
+  src: local('JetBrains Mono'),url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
 .dd-nav {
@@ -24,7 +24,7 @@
     margin: 0;
     padding: 10px;
     text-align: left;
-
+    border-bottom: 3px solid #1a1a1a;
 }
 
 .dd-header {
@@ -48,4 +48,40 @@
   display: flex;
   flex-direction: column;
   color: white;
+}
+
+.top-level {
+    height: 100%;
+}
+
+.left-nav {
+    background: black;
+    width: 25%;
+    float: left;
+}
+
+.main-content {
+    box-sizing: border-box;
+    background: black;
+    border-right: 3px solid #1a1a1a;
+    border-left: 3px solid #1a1a1a;
+    width: 50%;
+    float: left;
+}
+
+.right-pad {
+    background: black;
+    width: 25%;
+    float: left;
+}
+
+.flex-column {
+    display: flex;
+    height: 100%;
+    flex-flow: column;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
 }

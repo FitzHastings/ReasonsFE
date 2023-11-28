@@ -17,13 +17,21 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <div className="top-level">
       <header>
         <div className="dd-nav">
           <a className="dd-header">Dragondelve</a>
           <a className="dd-subheader">Reasons</a>
         </div>
       </header>
+      <div className="left-nav flex-column">
+      </div>
+      <div className="main-content flex-column">
+
+      </div>
+      <div className="right-pad flex-column">
+
+      </div>
     </div>
   );
 }
