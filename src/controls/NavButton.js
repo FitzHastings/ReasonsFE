@@ -29,9 +29,8 @@ export default class NavButton extends React.Component {
   }
 
   render() {
-    console.log('Rendering Nav Button', this.props.isToggled);
     return (
-      <button className={ this.props.isToggled ? 'active-nav nav-button' : 'nav-button' } onClick={ this.handleToggle }>
+      <button className={ this.props.isToggled ? 'active-nav nav-button' : 'inactive-nav nav-button' } onClick={ this.handleToggle }>
         <span className="nav-button-text">{this.props.text}</span>
       </button>
     );

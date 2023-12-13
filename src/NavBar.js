@@ -32,20 +32,16 @@ export default class NavBar extends React.Component {
   }
 
   onToggle = (id) => {
-    console.log('on Toggle on a navbarButton ', id);
     const newButtons = this.state.navButtons.map(navButton => {
-      console.log(navButton.id)
       if (navButton.id === id)
         return Object.assign({}, navButton, { isToggled: true });
 
       return Object.assign({}, navButton, { isToggled: false });
     })
-    console.log(newButtons)
     this.setState({ navButtons: newButtons });
   }
 
   render() {
-    console.log('Rendering NavBar')
     const navComponents = this.state.navButtons.map((navButton) => (
       <div className="nav-bar">
         <NavButton
@@ -58,7 +54,6 @@ export default class NavBar extends React.Component {
       </div>
     ));
 
-    console.log(navComponents)
     return (
         <div>
           {navComponents}

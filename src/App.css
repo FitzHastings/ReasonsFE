@@ -36,12 +36,12 @@
 }
 
 .active-nav {
-    border-color: #7f7f7f;
-}
-
-.nav-button:hover {
     border-color: #7c5716;
     color: #F8AE2C;
+}
+
+.inactive-nav:hover {
+    border-color: #7f7f7f;
 }
 
 .nav-bar {
