@@ -13,30 +13,20 @@
    limitations under the License.
 */
 
-import './App.css';
-import MainContent from "./MainContent";
-import NavBar from "./NavBar";
+import React from "react";
 
-function App() {
-  return (
-    <div className="top-level">
-      <header>
-        <div className="dd-nav">
-          <a className="dd-header">Dragondelve</a>
-          <a className="dd-subheader">Reasons</a>
-        </div>
-      </header>
-      <div className="left-nav flex-column">
-        <NavBar/>
-      </div>
-      <div className="main-content flex-column">
-        <MainContent />
-      </div>
-      <div className="right-pad flex-column">
+export default class MainContent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
+  render() {
+    if (typeof this.state?.displaying == 'undefined' || this.state?.displaying == null) return (<p>Nothing to display</p>)
+
+    return (
+      <div>
+        {this.state.displaying}
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-export default App;
