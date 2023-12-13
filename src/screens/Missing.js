@@ -1,4 +1,3 @@
-
 /* Copyright 2023 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,23 +15,19 @@
 
 import React from "react";
 
-export default class NavButton extends React.Component {
+export default class MissingScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: this.props.id,
-    };
-  }
-
-  handleToggle = () => {
-    this.props.onToggle(this.state.id);
   }
 
   render() {
     return (
-      <button className={ this.props.isToggled ? 'scale full-width first-layer active-nav' : 'scale full-width inactive-nav' } onClick={ this.handleToggle }>
-        <span className="nav-button-text">{this.props.text}</span>
-      </button>
+      <div className='padded-container'>
+        <div className='scale first-layer full-width'>
+          <h1>Nothing to Display</h1>
+          <p>There is no component to render for the given navigation</p>
+        </div>
+      </div>
     );
   }
 }

@@ -14,8 +14,7 @@
 */
 
 import './App.css';
-import MainContent from "./MainContent";
-import NavBar from "./NavBar";
+import Reasons from "./Reasons";
 
 function App() {
   return (
@@ -26,15 +25,7 @@ function App() {
           <a className="dd-subheader">Reasons</a>
         </div>
       </header>
-      <div className="left-nav flex-column">
-        <NavBar/>
-      </div>
-      <div className="main-content flex-column">
-        <MainContent />
-      </div>
-      <div className="right-pad flex-column">
-
-      </div>
+      <Reasons/>
     </div>
   );
 }

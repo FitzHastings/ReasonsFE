@@ -18,12 +18,10 @@
   src: local('JetBrains Mono'),url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
-.nav-button {
-    display: block;
-    width: 100%;
+.scale {
     box-sizing: border-box;
     background-color: #1f1e1e;
-    border: #302f2f 3px solid;
+    border: 3px solid;
     margin-top: 10px;
     text-align: left;
     border-radius: 10px;
@@ -35,8 +33,20 @@
     font-size: 24px;
 }
 
+.first-layer {
+    border-color: #7f7f7f;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+}
+
 .active-nav {
     border-color: #7c5716;
+}
+
+.active-nav .scale {
     color: #F8AE2C;
 }
 
@@ -44,7 +54,11 @@
     border-color: #7f7f7f;
 }
 
-.nav-bar {
+.inactive-nav {
+    border-color: #302f2f;
+}
+
+.padded-container {
     margin-left: 14px;
     margin-right: 14px;
 }

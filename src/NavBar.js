@@ -19,35 +19,26 @@ import React from "react";
 export default class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
-    const navButtons = [];
-    navButtons.push({ text: "Status", id: "status", isToggled: true });
-    navButtons.push({ text: "Research", id: "research", isToggled: false });
-    navButtons.push({ text: "Ideas", id: "ideas", isToggled: false });
-    navButtons.push({ text: "Projects", id: "project", isToggled: false });
-
-    this.state = {
-      navButtons,
-    };
+    const navButtons = this.props.screens.map(screen => Object.assign({}, screen, { isToggled: false }) );
+    navButtons[0].isToggled = true;
+    this.state = { navButtons };
   }
 
   onToggle = (id) => {
     const newButtons = this.state.navButtons.map(navButton => {
-      if (navButton.id === id)
-        return Object.assign({}, navButton, { isToggled: true });
-
+      if (navButton.id === id) return Object.assign({}, navButton, {isToggled: true});
       return Object.assign({}, navButton, { isToggled: false });
     })
+    this.props.onChangeScreen(id);
     this.setState({ navButtons: newButtons });
   }
 
   render() {
     const navComponents = this.state.navButtons.map((navButton) => (
-      <div className="nav-bar">
+      <div key={'nav-'+navButton.id}>
         <NavButton
-          key={'nav-'+navButton.id}
           id={navButton.id}
-          text={navButton.text}
+          text={navButton.name}
           isToggled={navButton.isToggled}
           onToggle={this.onToggle}
         />
@@ -55,7 +46,7 @@ export default class NavBar extends React.Component {
     ));
 
     return (
-        <div>
+        <div className='padded-container'>
           {navComponents}
         </div>
     );

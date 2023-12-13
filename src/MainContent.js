@@ -14,6 +14,8 @@
 */
 
 import React from "react";
+import MissingScreen from "./screens/Missing";
+import StatusScreen from "./screens/Status";
 
 export default class MainContent extends React.Component {
   constructor(props) {
@@ -21,11 +23,24 @@ export default class MainContent extends React.Component {
   }
 
   render() {
-    if (typeof this.state?.displaying == 'undefined' || this.state?.displaying == null) return (<p>Nothing to display</p>)
+    if (typeof this.props.currentScreen === 'undefined' || this.props.currentScreen === null)
+      return (
+        <div>
+          <MissingScreen/>
+        </div>
+      );
+
+    console.log(this.props.currentScreen.id)
+    if (this.props.currentScreen.id === 'status')
+      return (
+      <div>
+        <StatusScreen/>
+      </div>
+      );
 
     return (
       <div>
-        {this.state.displaying}
+        <MissingScreen/>
       </div>
     );
   }
