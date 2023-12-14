@@ -13,21 +13,21 @@
    limitations under the License.
 */
 
-import React from "react";
+import React from 'react';
 
 export default class MissingScreen extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    return (
-      <div className='padded-container'>
-        <div className='scale first-layer full-width'>
-          <h1>Nothing to Display</h1>
-          <p>There is no component to render for the given navigation</p>
-        </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="padded-container">
+                <div className="scale first-layer full-width">
+                    <h1>Nothing to Display</h1>
+                    <p>There is no component to render for the given navigation</p>
+                </div>
+            </div>
+        );
+    }
 }

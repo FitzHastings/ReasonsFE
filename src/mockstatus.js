@@ -13,20 +13,7 @@
    limitations under the License.
 */
 
-import React from 'react';
-
-export default class StatusScreen extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <div className="padded-container">
-                <div className="scale first-layer full-length">
-                    <a>Status Screen</a>
-                </div>
-            </div>
-        );
-    }
-}
+export default {
+    id: 1,
+    identity: 'Forgemaster'
+};

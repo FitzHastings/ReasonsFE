@@ -13,42 +13,42 @@
    limitations under the License.
 */
 
-import NavButton from "./controls/NavButton";
-import React from "react";
+import NavButton from './controls/NavButton';
+import React from 'react';
 
 export default class NavBar extends React.Component {
-  constructor(props) {
-    super(props);
-    const navButtons = this.props.screens.map(screen => Object.assign({}, screen, { isToggled: false }) );
-    navButtons[0].isToggled = true;
-    this.state = { navButtons };
-  }
+    constructor(props) {
+        super(props);
+        const navButtons = this.props.screens.map(screen => Object.assign({}, screen, {isToggled: false}));
+        navButtons[0].isToggled = true;
+        this.state = {navButtons};
+    }
 
-  onToggle = (id) => {
-    const newButtons = this.state.navButtons.map(navButton => {
-      if (navButton.id === id) return Object.assign({}, navButton, {isToggled: true});
-      return Object.assign({}, navButton, { isToggled: false });
-    })
-    this.props.onChangeScreen(id);
-    this.setState({ navButtons: newButtons });
-  }
+    onToggle = (id) => {
+        const newButtons = this.state.navButtons.map(navButton => {
+            if (navButton.id === id) return Object.assign({}, navButton, {isToggled: true});
+            return Object.assign({}, navButton, {isToggled: false});
+        });
+        this.props.onChangeScreen(id);
+        this.setState({navButtons: newButtons});
+    };
 
-  render() {
-    const navComponents = this.state.navButtons.map((navButton) => (
-      <div key={'nav-'+navButton.id}>
-        <NavButton
-          id={navButton.id}
-          text={navButton.name}
-          isToggled={navButton.isToggled}
-          onToggle={this.onToggle}
-        />
-      </div>
-    ));
+    render() {
+        const navComponents = this.state.navButtons.map((navButton) => (
+            <div key={'nav-' + navButton.id}>
+                <NavButton
+                    id={navButton.id}
+                    text={navButton.name}
+                    isToggled={navButton.isToggled}
+                    onToggle={this.onToggle}
+                />
+            </div>
+        ));
 
-    return (
-        <div className='padded-container'>
-          {navComponents}
-        </div>
-    );
-  }
+        return (
+            <div className="padded-container">
+                {navComponents}
+            </div>
+        );
+    }
 }

@@ -14,8 +14,8 @@
  */
 
 @font-face {
-  font-family: 'JetBrains Mono';
-  src: local('JetBrains Mono'),url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
+    font-family: 'JetBrains Mono';
+    src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
 .scale {
@@ -93,10 +93,10 @@
 }
 
 .App-header {
-  background-color: grey;
-  display: flex;
-  flex-direction: column;
-  color: white;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    color: white;
 }
 
 .top-level {
@@ -136,7 +136,7 @@
     color: white;
     padding-left: 10px;
     padding-bottom: 3px;
-    padding-top:  3px;
+    padding-top: 3px;
 }
 
 html, body {

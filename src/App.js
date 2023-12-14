@@ -14,20 +14,20 @@
 */
 
 import './App.css';
-import Reasons from "./Reasons";
+import Reasons from './Reasons';
 
 function App() {
-  return (
-    <div className="top-level">
-      <header>
-        <div className="dd-nav">
-          <a className="dd-header">Dragondelve</a>
-          <a className="dd-subheader">Reasons</a>
+    return (
+        <div className="top-level">
+            <header>
+                <div className="dd-nav">
+                    <a className="dd-header">Dragondelve</a>
+                    <a className="dd-subheader">Reasons</a>
+                </div>
+            </header>
+            <Reasons/>
         </div>
-      </header>
-      <Reasons/>
-    </div>
-  );
+    );
 }
 
 export default App;

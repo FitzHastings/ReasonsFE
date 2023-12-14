@@ -13,35 +13,35 @@
    limitations under the License.
 */
 
-import React from "react";
-import MissingScreen from "./screens/Missing";
-import StatusScreen from "./screens/Status";
+import React from 'react';
+import MissingScreen from './screens/Missing';
+import StatusScreen from './screens/Status';
 
 export default class MainContent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    if (typeof this.props.currentScreen === 'undefined' || this.props.currentScreen === null)
-      return (
-        <div>
-          <MissingScreen/>
-        </div>
-      );
+    render() {
+        if (typeof this.props.currentScreen === 'undefined' || this.props.currentScreen === null)
+            return (
+                <div>
+                    <MissingScreen/>
+                </div>
+            );
 
-    console.log(this.props.currentScreen.id)
-    if (this.props.currentScreen.id === 'status')
-      return (
-      <div>
-        <StatusScreen/>
-      </div>
-      );
+        console.log(this.props.currentScreen.id);
+        if (this.props.currentScreen.id === 'status')
+            return (
+                <div>
+                    <StatusScreen/>
+                </div>
+            );
 
-    return (
-      <div>
-        <MissingScreen/>
-      </div>
-    );
-  }
+        return (
+            <div>
+                <MissingScreen/>
+            </div>
+        );
+    }
 }

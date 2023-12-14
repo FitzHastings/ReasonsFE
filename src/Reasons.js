@@ -13,57 +13,57 @@
    limitations under the License.
 */
 
-import React from "react";
-import NavBar from "./NavBar";
-import MainContent from "./MainContent";
+import React from 'react';
+import NavBar from './NavBar';
+import MainContent from './MainContent';
 
 export default class Reasons extends React.Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    const screens = [
-      { id: 'status', name: 'Status' },
-      { id: 'research', name: 'Research' },
-      { id: 'ideas', name: 'Ideas' },
-      { id: 'projects', name: 'Projects' },
-    ]
+        const screens = [
+            {id: 'status', name: 'Status'},
+            {id: 'research', name: 'Research'},
+            {id: 'ideas', name: 'Ideas'},
+            {id: 'projects', name: 'Projects'},
+        ];
 
-    this.state = {
-      currentScreen: screens[0],
-      screens
+        this.state = {
+            currentScreen: screens[0],
+            screens
+        };
     }
-  }
 
-  onChangeScreen = (id) => {
-    console.log(id);
-    let newCurrentScreen = 'status';
-    for (const sc of this.state.screens) {
-      if (sc.id === id) {
-        newCurrentScreen = sc;
-        console.log("Screen switch")
-        break;
-      }
+    onChangeScreen = (id) => {
+        console.log(id);
+        let newCurrentScreen = 'status';
+        for (const sc of this.state.screens) {
+            if (sc.id === id) {
+                newCurrentScreen = sc;
+                console.log('Screen switch');
+                break;
+            }
+        }
+        this.setState({currentScreen: newCurrentScreen, screens: this.state.screens});
+    };
+
+    render() {
+        return (
+            <div className="top-level">
+                <div className="left-nav flex-column">
+                    <NavBar
+                        screens={this.state.screens}
+                        onChangeScreen={this.onChangeScreen}
+                    />
+                </div>
+                <div className="main-content flex-column">
+                    <MainContent
+                        currentScreen={this.state.currentScreen}
+                    />
+                </div>
+                <div className="right-pad flex-column">
+                </div>
+            </div>
+        );
     }
-    this.setState({ currentScreen: newCurrentScreen, screens: this.state.screens })
-  }
-
-  render() {
-    return (
-      <div className="top-level">
-        <div className="left-nav flex-column">
-          <NavBar
-            screens={this.state.screens}
-            onChangeScreen={this.onChangeScreen}
-          />
-        </div>
-        <div className="main-content flex-column">
-          <MainContent
-            currentScreen={this.state.currentScreen}
-          />
-        </div>
-        <div className="right-pad flex-column">
-        </div>
-      </div>
-    );
-  }
 }

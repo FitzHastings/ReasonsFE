@@ -1,4 +1,3 @@
-
 /* Copyright 2023 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,25 +13,27 @@
    limitations under the License.
 */
 
-import React from "react";
+import React from 'react';
 
 export default class NavButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: this.props.id,
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: this.props.id,
+        };
+    }
+
+    handleToggle = () => {
+        this.props.onToggle(this.state.id);
     };
-  }
 
-  handleToggle = () => {
-    this.props.onToggle(this.state.id);
-  }
-
-  render() {
-    return (
-      <button className={ this.props.isToggled ? 'scale full-width first-layer active-nav' : 'scale full-width inactive-nav' } onClick={ this.handleToggle }>
-        <span className="nav-button-text">{this.props.text}</span>
-      </button>
-    );
-  }
+    render() {
+        return (
+            <button
+                className={this.props.isToggled ? 'scale full-width first-layer active-nav' : 'scale full-width inactive-nav'}
+                onClick={this.handleToggle}>
+                <span className="nav-button-text">{this.props.text}</span>
+            </button>
+        );
+    }
 }
