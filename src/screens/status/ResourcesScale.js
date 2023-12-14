@@ -14,33 +14,28 @@
 */
 
 import React from 'react';
-import MissingScreen from './screens/Missing';
-import StatusScreen from './screens/status/Status';
 
-export default class MainContent extends React.Component {
+export default class ResourcesScale extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        if (typeof this.props.currentScreen === 'undefined' || this.props.currentScreen === null)
-            return (
-                <div>
-                    <MissingScreen/>
-                </div>
-            );
-
-        console.log(this.props.currentScreen.id);
-        if (this.props.currentScreen.id === 'status')
-            return (
-                <div>
-                    <StatusScreen/>
-                </div>
-            );
-
+        const headers = this.props.resources.map((resource) => (
+            <td>{resource.name}</td>
+        ) )
+        const amounts = this.props.resources.map((resource) => (
+            <td>{resource.amount}</td>
+        ))
         return (
-            <div>
-                <MissingScreen/>
+            <div className='scale first-layer full-width'>
+                <span className='scale-title-label'>Resources</span>
+                <table>
+                    <tbody>
+                        <tr>{headers}</tr>
+                        <tr>{amounts}</tr>
+                    </tbody>
+                </table>
             </div>
         );
     }

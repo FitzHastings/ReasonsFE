@@ -14,18 +14,31 @@
 */
 
 import React from 'react';
+import { mockStatus, mockResources } from '../../mocks'
+import TitleScale from './TitleScale';
+import ResourcesScale from './ResourcesScale';
 
 export default class StatusScreen extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            status: mockStatus,
+            resources: mockResources
+        }
     }
 
     render() {
         return (
             <div className="padded-container">
-                <div className="scale first-layer full-length">
-                    <a>Status Screen</a>
-                </div>
+                <TitleScale
+                    identity={ this.state.status.identity }
+                    law={ this.state.status.law }
+                    wings={ this.state.status.wingsStatus }
+                />
+                <ResourcesScale
+                    resources={this.state.resources}
+                />
             </div>
         );
     }

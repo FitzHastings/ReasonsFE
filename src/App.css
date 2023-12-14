@@ -18,6 +18,26 @@
     src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
+.status-identity {
+    margin-right: 1em;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.scale-title-label {
+    display: block;
+    font-size: 20px;
+    color: #61666B;
+    text-transform: uppercase;
+}
+
+.status-extra {
+    font-size: 20px;
+    color: #61666B;
+    margin-right: 2em;
+    text-transform: capitalize;
+}
+
 .scale {
     box-sizing: border-box;
     background-color: #1f1e1e;

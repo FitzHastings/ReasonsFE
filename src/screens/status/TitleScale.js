@@ -13,7 +13,20 @@
    limitations under the License.
 */
 
-export default {
-    id: 1,
-    identity: 'Forgemaster'
-};
+import React from 'react';
+
+export default class TitleScale extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <div className='scale first-layer full-width'>
+                <span className='status-identity'>Identity: {this.props.identity}</span>
+                <span className='status-extra'>Law: {this.props.law}</span>
+                <span className='status-extra'>Wings: {this.props.wings}</span>
+            </div>
+        )
+    }
+}
