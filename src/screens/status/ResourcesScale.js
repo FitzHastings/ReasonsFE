@@ -15,27 +15,76 @@
 
 import React from 'react';
 
+class EditableCell extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            edited: false
+        }
+    }
+
+    startEditing = () => {
+        this.setState({ edited: true });
+    }
+
+    stopEditing = (input) => {
+        console.log(input);
+        this.props.onResourceUpdate();
+    }
+
+    render() {
+        if (!this.state.edited) {
+            return (
+                <div className="resource-column second-layer">
+                    <div className="top-resource-cell">{this.props.name}</div>
+                    <div onDoubleClick={this.startEditing}>{this.props.amount}</div>
+                </div>);
+        } else {
+            return (
+                <div className="resource-column second-layer">
+                    <div className="top-resource-cell"><input type="text" value={this.props.name}/></div>
+                    <div><input onDoubleClick={this.stopEditing} type="text" value={this.props.amount}/></div>
+                </div>
+            )
+        }
+    }
+}
+
+class ResourceBar extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const cells = this.props.resources.map((resource) => (
+            <EditableCell
+                name={resource.name}
+                amount={resource.amount}
+            />
+        ));
+        return (
+            <div className='resource-bar'>
+                    {cells}
+                <div className='add-button-container'>
+                    <button className='add-button'><span className='button-label'>+</span></button>
+                </div>
+            </div>
+        );
+    }
+}
+
 export default class ResourcesScale extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const headers = this.props.resources.map((resource) => (
-            <td>{resource.name}</td>
-        ) )
-        const amounts = this.props.resources.map((resource) => (
-            <td>{resource.amount}</td>
-        ))
+
         return (
             <div className='scale first-layer full-width'>
                 <span className='scale-title-label'>Resources</span>
-                <table>
-                    <tbody>
-                        <tr>{headers}</tr>
-                        <tr>{amounts}</tr>
-                    </tbody>
-                </table>
+                <ResourceBar resources={ this.props.resources }/>
             </div>
         );
     }

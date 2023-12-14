@@ -18,6 +18,50 @@
     src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
+.resource-column {
+    display: inline-grid;
+    text-align: center;
+    font-size: 30px;
+    width: 1.5em;
+    border: 3px solid;
+    margin-right: -3px;
+    overflow: hidden;
+}
+
+.add-button {
+    background-color: #373535;
+    border-radius: 10px;
+    border: 3px #7c5716 solid;
+    font-size: 20px;
+    width: 1.6em;
+}
+
+.add-button:hover {
+   border-color: #F8AE2C;
+}
+
+.add-button-container {
+    float: right;
+    margin-left: 20px;
+    padding-top: 1.3em;
+}
+
+.button-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: #F8AE2C;
+}
+
+.resource-bar {
+    display: inline-block;
+    padding-bottom: 3px;
+}
+
+.top-resource-cell {
+    border-bottom: 3px #7f7f7f solid;
+    font-family: monospace;
+    height: 1.5em;
+}
+
 .status-identity {
     margin-right: 1em;
     font-size: 30px;
@@ -29,6 +73,7 @@
     font-size: 20px;
     color: #61666B;
     text-transform: uppercase;
+    padding-bottom: 5px;
 }
 
 .status-extra {
@@ -54,6 +99,11 @@
 }
 
 .first-layer {
+    border-color: #7f7f7f;
+}
+
+.second-layer {
+    background-color: #373535;
     border-color: #7f7f7f;
 }
 
