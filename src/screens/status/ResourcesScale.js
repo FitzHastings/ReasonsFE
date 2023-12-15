@@ -20,34 +20,49 @@ class EditableCell extends React.Component {
         super(props);
 
         this.state = {
-            edited: false
+            editingAmount: false,
+            editingName: false,
         }
     }
 
-    startEditing = () => {
-        this.setState({ edited: true });
+    startEditingName = () => {
+        this.setState(Object.assign({}, this.state, { editingName: true }));
     }
 
-    stopEditing = (input) => {
+    stopEditingName = (input) => {
+        //this.props.onResourceUpdate();
+        this.setState(Object.assign({}, this.state, { editingName: false }));
+    }
+
+    startEditingAmount = () => {
+        this.setState(Object.assign({}, this.state, { editingAmount: true }));
+    }
+
+    stopEditingAmount = (input) => {
         console.log(input);
-        this.props.onResourceUpdate();
+        //this.props.onResourceUpdate();
+        this.setState(Object.assign({}, this.state, { editingAmount: false }));
     }
 
     render() {
-        if (!this.state.edited) {
-            return (
-                <div className="resource-column second-layer">
-                    <div className="top-resource-cell">{this.props.name}</div>
-                    <div onDoubleClick={this.startEditing}>{this.props.amount}</div>
-                </div>);
-        } else {
-            return (
-                <div className="resource-column second-layer">
-                    <div className="top-resource-cell"><input type="text" value={this.props.name}/></div>
-                    <div><input onDoubleClick={this.stopEditing} type="text" value={this.props.amount}/></div>
-                </div>
-            )
-        }
+        let topCell;
+        let bottomCell;
+        if (this.state.editingName)
+            topCell = <div className="top-resource-cell" onDoubleClick={this.stopEditingName}><input type="text" value={this.props.amount}/></div>;
+        else
+            topCell = <div className="top-resource-cell" onDoubleClick={this.startEditingName}>{this.props.name}</div>;
+
+        if (this.state.editingAmount)
+            bottomCell = <div><input onDoubleClick={this.stopEditingAmount} type="text" value={this.props.amount}/></div>;
+        else
+            bottomCell = <div onDoubleClick={this.startEditingAmount}>{this.props.amount}</div>;
+
+        return (
+            <div className="resource-column second-layer">
+                {topCell}
+                {bottomCell}
+            </div>
+        );
     }
 }
 
