@@ -28,6 +28,18 @@ export default class StatusScreen extends React.Component {
         }
     }
 
+    //This guy interacts with the server
+    onResourceChange = (resource) => {
+        const newResources = this.state.resources.map((res) => {
+            if (res.id !== resource.id)
+                return res;
+            else
+                return Object.assign({}, resource);
+        })
+        this.setState({ status: this.state.status, resources: newResources});
+        console.log(newResources);
+    }
+
     render() {
         return (
             <div className="padded-container">
@@ -38,6 +50,7 @@ export default class StatusScreen extends React.Component {
                 />
                 <ResourcesScale
                     resources={this.state.resources}
+                    onResourceChange={this.onResourceChange}
                 />
             </div>
         );
