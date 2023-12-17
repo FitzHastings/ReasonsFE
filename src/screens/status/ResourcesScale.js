@@ -19,6 +19,8 @@ class EditableCell extends React.Component {
     constructor(props) {
         super(props);
 
+        this.controlIsHeld = false;
+
         this.state = {
             id: this.props.id,
             amount: this.props.amount,
@@ -54,13 +56,53 @@ class EditableCell extends React.Component {
         this.setState({ amount: e.target.value })
     }
 
+    handleEditKeuPress(e) {
+        if (e.code === 'Delete' && this.controlIsHeld) {
+            this.props.onResourceDelete(this.state.id)
+        } else if (e.code === 'ControlLeft') {
+            this.controlIsHeld = false;
+        }
+    }
+
+    handleEditKeyOneName = (e) => {
+        this.handleEditKeuPress(e);
+        if (e.code === 'Enter') {
+            this.stopEditingName();
+        } else if (e.code === 'Escape') {
+            this.setState({ name: this.props.name, editingName: false});
+        }
+    }
+
+    handleEditKeyOnAmount = (e) => {
+        this.handleEditKeuPress(e);
+            if (e.code === 'Enter') {
+            this.stopEditingAmount();
+        } else if (e.code === 'Escape') {
+            this.setState({ amount: this.props.amount, editingAmount: false});
+        }
+    }
+
+    handleControl = (e) => {
+        console.log(e.code)
+        if (e.code === 'ControlLeft') {
+            this.controlIsHeld = true;
+        }
+    }
+
     render() {
         let topCell;
         let bottomCell;
         if (this.state.editingName)
             topCell = (
                 <div className="top-resource-cell" onDoubleClick={this.stopEditingName}>
-                    <input type="text" value={this.state.name} onChange={this.handleNameChange} className='edited-cell'/>
+                    <input
+                        type="text"
+                        value={this.state.name}
+                        onChange={this.handleNameChange}
+                        className='edited-cell'
+                        onKeyUp={this.handleEditKeyOneName}
+                        onKeyDown={this.handleControl}
+                    />
                 </div>
             );
         else
@@ -69,7 +111,15 @@ class EditableCell extends React.Component {
         if (this.state.editingAmount)
             bottomCell = (
                 <div>
-                    <input onDoubleClick={this.stopEditingAmount} type="text" value={this.state.amount} onChange={this.handleAmountChange} className='edited-cell'/>
+                    <input
+                        onDoubleClick={this.stopEditingAmount}
+                        type="text"
+                        value={this.state.amount}
+                        onChange={this.handleAmountChange}
+                        className='edited-cell'
+                        onKeyUp={this.handleEditKeyOnAmount}
+                        onKeyDown={this.handleControl}
+                    />
                 </div>
             );
         else
@@ -89,6 +139,7 @@ class ResourceBar extends React.Component {
         super(props);
     }
 
+
     render() {
         const cells = this.props.resources.map((resource) => (
             <EditableCell
@@ -96,13 +147,14 @@ class ResourceBar extends React.Component {
                 amount={resource.amount}
                 id={resource.id}
                 onResoureEdit={this.props.onResourceEdit}
+                onResourceDelete={this.props.onResourceDelete}
             />
         ));
         return (
             <div className='resource-bar'>
                     {cells}
                 <div className='add-button-container'>
-                    <button className='add-button'><span className='button-label'>+</span></button>
+                    <button className='add-button' onClick={this.props.onNewResource}><span className='button-label'>+</span></button>
                 </div>
             </div>
         );
@@ -115,11 +167,15 @@ export default class ResourcesScale extends React.Component {
     }
 
     render() {
-
         return (
             <div className='scale first-layer full-width'>
                 <span className='scale-title-label'>Resources</span>
-                <ResourceBar resources={ this.props.resources } onResourceEdit={this.props.onResourceChange}/>
+                <ResourceBar
+                    resources={ this.props.resources }
+                    onResourceEdit={this.props.onResourceChange}
+                    onNewResource={this.props.onNewResource}
+                    onResourceDelete={this.props.onResourceDelete}
+                />
             </div>
         );
     }

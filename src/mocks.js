@@ -21,14 +21,14 @@ export const mockStatus = {
 }
 
 export const mockResources = [
-    { id: 1, name: '⚡', amount: 29 },
-    { id: 2, name: '⚗️', amount: 11 },
-    { id: 3, name: '🦠', amount: 3 },
-    { id: 4, name: '🖱️', amount: 14 },
-    { id: 5, name: '💊', amount: 34 },
-    { id: 6, name: '📜', amount: 5 },
-    { id: 7, name: '🧪', amount: 17 },
-    { id: 8, name: '🐁', amount: 23 },
-    { id: 9, name: '💰', amount: 2 },
-    { id: 10, name: '💡', amount: 12 }
+    { id: 0, name: '⚡', amount: 29 },
+    { id: 1, name: '⚗️', amount: 11 },
+    { id: 2, name: '🦠', amount: 3 },
+    { id: 3, name: '🖱️', amount: 14 },
+    { id: 4, name: '💊', amount: 34 },
+    { id: 5, name: '📜', amount: 5 },
+    { id: 6, name: '🧪', amount: 17 },
+    { id: 7, name: '🐁', amount: 23 },
+    { id: 8, name: '💰', amount: 2 },
+    { id: 9, name: '💡', amount: 12 }
 ]

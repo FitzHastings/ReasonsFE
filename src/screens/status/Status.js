@@ -40,6 +40,29 @@ export default class StatusScreen extends React.Component {
         console.log(newResources);
     }
 
+    onNewResource = () => {
+        // This should communicate with the server;
+        const newResource = {
+            id: this.state.resources.length,
+            name: '🔧',
+            amount: 0,
+        }
+        const newResources = [...this.state.resources];
+        newResources.push(newResource);
+
+        this.setState({ resources: newResources})
+    }
+
+    onResourceDelete = (id) => {
+        const newResources = [];
+        for (const resource of this.state.resources)
+            if (resource.id !== id) newResources.push(resource);
+
+        console.log(newResources);
+
+        this.setState({resources: newResources});
+    }
+
     render() {
         return (
             <div className="padded-container">
@@ -51,6 +74,8 @@ export default class StatusScreen extends React.Component {
                 <ResourcesScale
                     resources={this.state.resources}
                     onResourceChange={this.onResourceChange}
+                    onNewResource={this.onNewResource}
+                    onResourceDelete={this.onResourceDelete}
                 />
             </div>
         );
