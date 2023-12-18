@@ -18,6 +18,19 @@
     src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
+.scale {
+    box-sizing: border-box;
+    background-color: #1f1e1e;
+    border: 3px solid;
+    margin-top: 10px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+}
+
 .add-tech-tree-button {
     background-color: #373535;
     border-radius: 10px;
@@ -69,6 +82,7 @@
     border: 3px #7c5716 solid;
     font-size: 20px;
     width: 1.6em;
+    text-align: center;
 }
 
 .add-button:hover {
@@ -117,19 +131,6 @@
     color: #61666B;
     margin-right: 2em;
     text-transform: capitalize;
-}
-
-.scale {
-    box-sizing: border-box;
-    background-color: #1f1e1e;
-    border: 3px solid;
-    margin-top: 10px;
-    text-align: left;
-    border-radius: 10px;
-    padding: 5px 20px;
-    color: white;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 24px;
 }
 
 .first-layer {
@@ -251,6 +252,7 @@
     text-align: center;
     padding-top: 1px;
 }
+
 html, body {
     height: 100%;
     background-color: black;
