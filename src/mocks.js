@@ -104,5 +104,56 @@ export const mockResearch = [
                 ]
             }
         ]
+    },
+    {
+        name: '# Great Bibas',
+        id: 3,
+        categories: [
+            {
+                name: 'TL8',
+                id: 5,
+                technologies: [
+                    {
+                        name: 'Test Tech 8',
+                        id: 8,
+                        status: 'available'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: '# Chemistry',
+        id: 4,
+        categories: [
+            {
+                name: 'TL8',
+                id: 6,
+                technologies: [
+                    {
+                        name: 'Test Tech 8',
+                        id: 9,
+                        status: 'available'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: '# Chemistry',
+        id: 5,
+        categories: [
+            {
+                name: 'TL8',
+                id: 7,
+                technologies: [
+                    {
+                        name: 'Test Tech 7',
+                        id: 10,
+                        status: 'available'
+                    }
+                ]
+            }
+        ]
     }
 ]

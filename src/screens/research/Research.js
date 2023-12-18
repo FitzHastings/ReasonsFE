@@ -31,6 +31,7 @@ export default class ResearchScreen extends React.Component {
                 <TechTreeScale
                     techTrees={this.state.techTrees}
                 />
+                <button className='scale full-width add-button'><span className='button-label'>+</span></button>
             </div>
         );
     }

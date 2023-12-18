@@ -27,9 +27,11 @@ class TechTreeButton extends React.Component {
 
     render() {
         return(
-            <button className='scale second-layer'>
-                  <span className='button-label'>{this.state.name}</span>
-            </button>
+            <div className='tab-scale-container'>
+                <button className='scale second-layer tab-scale'>
+                      <span className='tab-label'>{this.state.name}</span>
+                </button>
+            </div>
         );
     }
 }
@@ -53,11 +55,12 @@ export default class TechTreeScale extends React.Component {
                 />
             )
         });
-        
+
         return (
             <div className='scale first-layer full-width'>
                 <span className='scale-title-label'>Tech Trees</span>
                 {resourceTabs}
+                <button className='add-tech-tree-button'><span className='button-label'>+</span></button>
             </div>
         );
     }

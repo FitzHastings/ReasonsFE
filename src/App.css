@@ -18,6 +18,41 @@
     src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
 }
 
+.add-tech-tree-button {
+    background-color: #373535;
+    border-radius: 10px;
+    border: 3px #7c5716 solid;
+    font-size: 20px;
+    width: 1.6em;
+}
+
+.add-tech-tree-button:hover {
+    border-color: #F8AE2C;
+}
+
+.tab-scale-container {
+    width: 25%;
+    display: inline-grid;
+}
+
+.tab-scale {
+    margin-right: 5px;
+    margin-left: 5px;
+    box-sizing: border-box;
+}
+
+.tab-scale {
+    border-color: #7f7f7f
+}
+
+.active-tab {
+
+}
+
+.tab-label {
+    font-size: 20px;
+}
+
 .resource-column {
     display: inline-grid;
     text-align: center;
@@ -91,9 +126,7 @@
     margin-top: 10px;
     text-align: left;
     border-radius: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
+    padding: 5px 20px;
     color: white;
     font-family: 'JetBrains Mono', monospace;
     font-size: 24px;
@@ -115,9 +148,6 @@
 
 .active-nav {
     border-color: #7c5716;
-}
-
-.active-nav .scale {
     color: #F8AE2C;
 }
 
