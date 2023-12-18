@@ -32,3 +32,77 @@ export const mockResources = [
     { id: 8, name: '💰', amount: 2 },
     { id: 9, name: '💡', amount: 12 }
 ]
+
+export const mockResearch = [
+    {
+        name: '⚡ Physics',
+        id: 1,
+        categories: [
+            {
+                name: 'TL8',
+                id: 1,
+                technologies: [
+                    {
+                        name: 'Test Tech 1',
+                        id: 1,
+                        status: 'available',
+                    },
+                    {
+                        name: 'Test Tech 2',
+                        id: 2,
+                        status: 'available',
+                    },
+                    {
+                        name: 'Test Tech 3',
+                        id: 1,
+                        status: 'researching',
+                    }
+                ]
+            },
+            {
+                name: 'TL9',
+                id: 2,
+                technologies: [
+                    {
+                        name: 'Test Tech 4',
+                        id: 4,
+                        status: 'locked',
+                    },
+                    {
+                        name: 'Test Tech 5',
+                        id: 5,
+                        status: 'available'
+                    }
+                ]
+            },
+            {
+                name: 'TL10',
+                id: 3,
+                technologies: [
+                    {
+                        name: 'Test Tech 6',
+                        id: 6,
+                        status: 'available'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        name: '# Chemistry',
+        id: 2,
+        categories: [
+            {
+                name: 'TL8',
+                id: 4,
+                technologies: [
+                    {
+                        name: 'Test Tech 7',
+                        id: 7,
+                        status: 'available'
+                    }
+                ]
+            }
+        ]
+    }
+]

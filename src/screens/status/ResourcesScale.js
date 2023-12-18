@@ -139,13 +139,13 @@ class ResourceBar extends React.Component {
         super(props);
     }
 
-
     render() {
         const cells = this.props.resources.map((resource) => (
             <EditableCell
                 name={resource.name}
                 amount={resource.amount}
                 id={resource.id}
+                key={resource.id}
                 onResoureEdit={this.props.onResourceEdit}
                 onResourceDelete={this.props.onResourceDelete}
             />

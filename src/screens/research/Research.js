@@ -13,27 +13,25 @@
    limitations under the License.
 */
 
+import TechTreeScale from './TechTreeScale';
 import React from 'react';
-import MissingScreen from './screens/Missing';
-import StatusScreen from './screens/status/Status';
-import ResearchScreen from './screens/research/Research';
+import {mockResearch} from '../../mocks';
 
-export default class MainContent extends React.Component {
+export default class ResearchScreen extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            techTrees: mockResearch
+        }
     }
 
     render() {
-        let currentScreen  = <MissingScreen />;
-        if (this.props.currentScreen.id === 'status')
-            currentScreen = <StatusScreen />;
-        else if (this.props.currentScreen.id === 'research')
-            currentScreen = <ResearchScreen />
-
         return (
-          <div>
-              {currentScreen}
-          </div>
+            <div className="padded-container">
+                <TechTreeScale
+                    techTrees={this.state.techTrees}
+                />
+            </div>
         );
     }
 }
