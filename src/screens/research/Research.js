@@ -16,21 +16,34 @@
 import TechTreeScale from './TechTreeScale';
 import React from 'react';
 import {mockResearch} from '../../mocks';
+import TechGroupScale from './TechGroupScale';
 
 export default class ResearchScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            techTrees: mockResearch
+            techTrees: mockResearch,
+            currentTree: mockResearch[0],
         }
     }
 
     render() {
+        const groups = this.state.currentTree.categories.map((group) => {
+            return (
+                <TechGroupScale
+                    name={group.name}
+                    technologies={group.technologies}
+                    key={group.id}
+                />
+            );
+        })
         return (
             <div className="padded-container">
                 <TechTreeScale
                     techTrees={this.state.techTrees}
+                    currentTree={this.state.currentTree}
                 />
+                {groups}
                 <button className='scale full-width add-button'><span className='button-label'>+</span></button>
             </div>
         );

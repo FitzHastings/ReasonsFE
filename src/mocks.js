@@ -85,6 +85,32 @@ export const mockResearch = [
                         status: 'available'
                     }
                 ]
+            },
+            {
+                name: 'TL11',
+                id: 8,
+                technologies: [
+                    {
+                        name: 'Test Tech ',
+                        id: 11,
+                        status: 'available'
+                    },
+                    {
+                        name: 'Test Tech ',
+                        id: 12,
+                        status: 'available'
+                    },
+                    {
+                        name: 'Test Tech ',
+                        id: 13,
+                        status: 'available'
+                    },                    {
+                        name: 'Test Tech ',
+                        id: 14,
+                        status: 'available'
+                    }
+
+                ]
             }
         ]
     },
