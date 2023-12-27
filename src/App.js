@@ -18,7 +18,7 @@ import Reasons from './Reasons';
 
 function App() {
     return (
-        <div className="top-level">
+        <div>
             <header>
                 <div className="dd-nav">
                     <a className="dd-header">Dragondelve</a>

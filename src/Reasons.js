@@ -49,7 +49,7 @@ export default class Reasons extends React.Component {
 
     render() {
         return (
-            <div className="top-level">
+            <div className="column-container">
                 <div className="left-nav flex-column">
                     <NavBar
                         screens={this.state.screens}
