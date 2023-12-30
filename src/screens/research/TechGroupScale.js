@@ -27,8 +27,8 @@ export default class TechGroupScale extends React.Component {
         return (
             <div className='scale full-width first-layer'>
                 <span className='scale-title-label'>{this.props.name}</span>
+                <span className='scale-title-label edit-label'>Edit</span>
                 {techs}
-                <button className='scale full-width add-button'><span className='button-label'>+</span></button>
             </div>
         )
     }
