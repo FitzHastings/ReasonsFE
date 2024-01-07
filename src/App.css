@@ -24,6 +24,9 @@
 
 .edit-label {
     float: right;
+    font-size: 20px;
+    color: #61666B;
+    margin-top: -25px;
 }
 
 .scale {
