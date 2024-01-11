@@ -67,7 +67,16 @@ export default class TechGroupScale extends React.Component {
     render() {
         if (this.state.edited) {
             const techs = this.props.technologies.map((tech) => {
-                return (<div key={tech.id} className="scale full-width second-layer"><span>{tech.name}</span> <span onClick={event => this.onTechRemoved(event, tech.id)} className='floating-label'>Remove</span></div>);
+                return (
+                    <div key={tech.id} className="scale full-width second-layer">
+                        <input
+                            type='text'
+                            value={tech.name}
+                            onChange={this.handleNameChange}
+                            className='edited-cell'
+                        />
+                        <span onClick={event => this.onTechRemoved(event, tech.id)} className='floating-label'>Remove</span>
+                    </div>);
             });
             return (
                 <div className="scale full-width first-layer">
