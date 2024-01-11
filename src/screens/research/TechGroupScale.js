@@ -35,6 +35,7 @@ export default class TechGroupScale extends React.Component {
     }
 
     onTechAdded = () => {
+        console.log(this.state.technologies)
         const newTechnologies = [...this.state.technologies]
         newTechnologies.push({
             name: 'New Technology',
@@ -45,12 +46,28 @@ export default class TechGroupScale extends React.Component {
             name: this.state.name,
             technologies: newTechnologies,
         });
+        this.setState({technologies: newTechnologies})
+    }
+
+    onTechRemoved = (event, id) => {
+        console.log(id);
+        const newTechnologies = this.state.technologies.filter((tech) => {
+            return tech.id !== id;
+        });
+
+        this.props.onTechTreeModified({
+            id: this.state.id,
+            name: this.state.name,
+            technologies: newTechnologies,
+        });
+
+        this.setState({technologies: newTechnologies});
     }
 
     render() {
         if (this.state.edited) {
             const techs = this.props.technologies.map((tech) => {
-                return (<div key={tech.id} className="scale full-width second-layer"><span>{tech.name}</span> <span className='floating-label'>Remove</span></div>);
+                return (<div key={tech.id} className="scale full-width second-layer"><span>{tech.name}</span> <span onClick={event => this.onTechRemoved(event, tech.id)} className='floating-label'>Remove</span></div>);
             });
             return (
                 <div className="scale full-width first-layer">

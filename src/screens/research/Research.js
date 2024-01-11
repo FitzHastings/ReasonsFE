@@ -28,12 +28,14 @@ export default class ResearchScreen extends React.Component {
     }
 
     onTechTreeModified = (newTree) => {
+        console.log(newTree)
         const newTrees = this.state.currentTree.categories.map((category) => {
             if (category.name === newTree.name) {
                 return newTree
             } else return category;
         });
         const newGroup = Object.assign({}, this.state.currentTree, { categories: newTrees });
+        console.log(newGroup)
         this.setState({ currentTree: newGroup});
         // This is where we contact the server when we happen to have a server available,
     }
@@ -43,7 +45,8 @@ export default class ResearchScreen extends React.Component {
             return (
                 <TechGroupScale
                     name={group.name}
-                    key={group.name}
+                    id={group.id}
+                    key={group.id}
                     technologies={group.technologies}
                     onTechTreeModified={this.onTechTreeModified}
                 />
