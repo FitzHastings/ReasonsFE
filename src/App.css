@@ -23,10 +23,13 @@
 }
 
 .edit-label {
+    margin-top: -25px;
+}
+
+.floating-label {
     float: right;
     font-size: 20px;
     color: #61666B;
-    margin-top: -25px;
 }
 
 .scale {
