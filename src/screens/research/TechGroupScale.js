@@ -32,47 +32,49 @@ export default class TechGroupScale extends React.Component {
 
     onEditCommit = () => {
         this.setState({ edited: false });
+        this.props.onTechTreeModified({
+            id: this.state.id,
+            name: this.state.name,
+            technologies: this.state.technologies,
+        });
     }
 
     onTechAdded = () => {
-        console.log(this.state.technologies)
         const newTechnologies = [...this.state.technologies]
         newTechnologies.push({
             name: 'New Technology',
             id: newTechnologies.length + 1
         });
-        this.props.onTechTreeModified({
-            id: this.state.id,
-            name: this.state.name,
-            technologies: newTechnologies,
-        });
+
         this.setState({technologies: newTechnologies})
     }
 
     onTechRemoved = (event, id) => {
-        console.log(id);
         const newTechnologies = this.state.technologies.filter((tech) => {
             return tech.id !== id;
-        });
-
-        this.props.onTechTreeModified({
-            id: this.state.id,
-            name: this.state.name,
-            technologies: newTechnologies,
         });
 
         this.setState({technologies: newTechnologies});
     }
 
+    handleNameChange = (event, id) => {
+        const newTechnologies = this.state.technologies.map((tech) => {
+            if (tech.id !== id) return tech;
+            else return Object.assign({}, tech, { name: event.target.value })
+        });
+
+        this.setState({ technologies: newTechnologies})
+    }
+
     render() {
         if (this.state.edited) {
-            const techs = this.props.technologies.map((tech) => {
+            const techs = this.state.technologies.map((tech) => {
                 return (
                     <div key={tech.id} className="scale full-width second-layer">
                         <input
                             type='text'
                             value={tech.name}
-                            onChange={this.handleNameChange}
+                            onChange={event => this.handleNameChange(event, tech.id)}
                             className='text-field'
                         />
                         <span onClick={event => this.onTechRemoved(event, tech.id)} className='floating-label'>Remove</span>
@@ -80,19 +82,19 @@ export default class TechGroupScale extends React.Component {
             });
             return (
                 <div className="scale full-width first-layer">
-                    <span className="scale-title-label">{this.props.name}</span>
+                    <span className="scale-title-label">{this.state.name}</span>
                     <span onClick={this.onEditCommit} className="edit-label floating-label">Ok</span>
                     {techs}
                     <div onClick={this.onTechAdded} className="add-button full-width scale"><span className='button-label'>+</span></div>
                 </div>
             )
         } else {
-            const techs = this.props.technologies.map((tech) => {
+            const techs = this.state.technologies.map((tech) => {
                 return <div className="scale second-layer"><span>{tech.name}</span></div>;
             });
             return (
                 <div className='scale full-width first-layer'>
-                    <span className='scale-title-label'>{this.props.name}</span>
+                    <span className='scale-title-label'>{this.state.name}</span>
                     <span onClick={this.onEditStart} className='edit-label floating-label'>Edit</span>
                     {techs}
                 </div>
