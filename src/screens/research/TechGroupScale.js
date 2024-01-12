@@ -73,7 +73,7 @@ export default class TechGroupScale extends React.Component {
                             type='text'
                             value={tech.name}
                             onChange={this.handleNameChange}
-                            className='edited-cell'
+                            className='text-field'
                         />
                         <span onClick={event => this.onTechRemoved(event, tech.id)} className='floating-label'>Remove</span>
                     </div>);

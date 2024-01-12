@@ -263,14 +263,17 @@
 
 .edited-cell {
     display: flex;
+    width: 1.3em;
+    text-align: center;
+    padding-top: 1px;
+}
+
+.text-field {
     font-size: 30px;
     color: white;
     background-color: #282c34;
-    width: 1.3em;
-    text-decoration: underline white 2px;
     border: solid 1px #F8AE2C;
-    text-align: center;
-    padding-top: 1px;
+    text-decoration: underline white 2px;
 }
 
 html, body {

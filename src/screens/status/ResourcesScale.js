@@ -116,7 +116,7 @@ class EditableCell extends React.Component {
                         type="text"
                         value={this.state.amount}
                         onChange={this.handleAmountChange}
-                        className='edited-cell'
+                        className='edited-cell text-field'
                         onKeyUp={this.handleEditKeyOnAmount}
                         onKeyDown={this.handleControl}
                     />
