@@ -276,6 +276,25 @@
     text-decoration: underline white 2px;
 }
 
+.tech-available {
+    border-color: #7f7f7f;
+}
+
+.tech-researching {
+    border-color: #67268c;
+    color: #ae2cf8;
+}
+
+.tech-complete {
+    border-color: #268c67;
+    color: #2cf8ae;
+}
+
+.tech-locked {
+    border-color: #8c2626;
+    color: #f82c2c;
+}
+
 html, body {
     min-height: 100vh;
     background-color: black;

@@ -45,7 +45,7 @@ export const mockResearch = [
                     {
                         name: 'Test Tech 1',
                         id: 1,
-                        status: 'available',
+                        status: 'complete',
                     },
                     {
                         name: 'Test Tech 2',

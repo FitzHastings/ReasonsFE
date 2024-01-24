@@ -82,7 +82,7 @@ export default class TechGroupScale extends React.Component {
             });
             return (
                 <div className="scale full-width first-layer">
-                    <span className="scale-title-label">{this.state.name}</span>
+                    <span className={`scale-title-label`}>{this.state.name}</span>
                     <span onClick={this.onEditCommit} className="edit-label floating-label">Ok</span>
                     {techs}
                     <div onClick={this.onTechAdded} className="add-button full-width scale"><span className='button-label'>+</span></div>
@@ -90,7 +90,7 @@ export default class TechGroupScale extends React.Component {
             )
         } else {
             const techs = this.state.technologies.map((tech) => {
-                return <div className="scale second-layer"><span>{tech.name}</span></div>;
+                return <div className={`scale second-layer tech-${tech.status}`}><span>{tech.name}</span></div>;
             });
             return (
                 <div className='scale full-width first-layer'>
